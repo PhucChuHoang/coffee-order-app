@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- splash_screen strings -->
+    <!-- splash_screen strings -->
 
-	<string name="app_name">Page 1</string>
-	<string name="ek_img_content">ExportKit Image</string>
-	<string name="time_string">9:41</string>
-	<string name="ordinary_coffee_house_string">Ordinary Coffee House</string>
+    <string name="app_name">Page 1</string>
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="time_string">9:41</string>
+    <string name="ordinary_coffee_house_string">Ordinary Coffee House</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
