@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
+import com.example.coffee_order_app.R
 import com.example.coffee_order_app.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -28,6 +30,36 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val clickListener = View.OnClickListener { v ->
+            when (v) {
+                binding.coffeeType1 -> {
+                    println("Americano Selected")
+                }
+                binding.coffeeType2 -> {
+                    println("Cappuccino Selected")
+                }
+                binding.coffeeType3 -> {
+                    println("Mocha Selected")
+                }
+                binding.coffeeType4 -> {
+                    println("Flat White Selected")
+                }
+                binding.profileIcon -> {
+                    findNavController().navigate(R.id.action_navigation_home_to_profileFragment2)
+                }
+            }
+        }
+
+        binding.coffeeType1.setOnClickListener(clickListener)
+        binding.coffeeType2.setOnClickListener(clickListener)
+        binding.coffeeType3.setOnClickListener(clickListener)
+        binding.coffeeType4.setOnClickListener(clickListener)
+        binding.profileIcon.setOnClickListener(clickListener)
     }
 
     override fun onDestroyView() {
