@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="316dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="33dp"
         android:src="@drawable/profile"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         android:id="@+id/buy_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:src="@drawable/buy"
         app:layout_constraintEnd_toStartOf="@+id/profile_icon"
@@ -32,7 +32,7 @@
         android:id="@+id/rectangle_loyalty_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="129dp"
+        android:layout_marginTop="89dp"
         android:src="@drawable/rectangle_loyalty_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -135,7 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="23dp"
         android:fontFamily="@font/poppins_medium_500"
         android:text="Good Morning"
         android:textColor="@color/color_d8d8d8"
@@ -148,7 +148,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/poppins_medium_500"
         android:text="Anderson"
         android:textColor="@color/color_001833"
@@ -196,7 +196,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium_500"
         android:textColor="@color/color_d8d8d8"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:layout_constraintTop_toTopOf="@id/rectangle_choose_coffee"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="@id/rectangle_choose_coffee"
@@ -223,6 +223,18 @@
         app:layout_constraintStart_toStartOf="@id/coffee_type_1"
         android:layout_marginStart="22dp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/image_coffee_1"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@id/coffee_type_1"
+        android:layout_marginStart="41dp"
+        android:text="Americano"
+        android:textSize="14sp"
+        android:fontFamily="@font/poppins_medium_500"
+        android:textColor="@color/color_001833"/>
+
     <ImageView
         android:id="@+id/coffee_type_2"
         android:layout_width="wrap_content"
@@ -243,6 +255,18 @@
         app:layout_constraintStart_toStartOf="@id/coffee_type_2"
         android:layout_marginStart="26dp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/image_coffee_2"
+        android:layout_marginTop="17dp"
+        app:layout_constraintStart_toStartOf="@id/coffee_type_2"
+        android:layout_marginStart="32dp"
+        android:text="Cappuccino"
+        android:textSize="14sp"
+        android:fontFamily="@font/poppins_medium_500"
+        android:textColor="@color/color_001833"/>
+
     <ImageView
         android:id="@+id/coffee_type_3"
         android:layout_width="wrap_content"
@@ -259,9 +283,21 @@
         android:layout_height="wrap_content"
         android:src="@drawable/coffee3"
         app:layout_constraintTop_toTopOf="@id/coffee_type_3"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="37dp"
         app:layout_constraintStart_toStartOf="@id/coffee_type_3"
         android:layout_marginStart="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/image_coffee_3"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toStartOf="@id/coffee_type_3"
+        android:layout_marginStart="53dp"
+        android:text="Mocha"
+        android:textSize="14sp"
+        android:fontFamily="@font/poppins_medium_500"
+        android:textColor="@color/color_001833"/>
 
     <ImageView
         android:id="@+id/coffee_type_4"
@@ -282,5 +318,17 @@
         android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="@id/coffee_type_4"
         android:layout_marginStart="29dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/image_coffee_4"
+        android:layout_marginTop="17dp"
+        app:layout_constraintStart_toStartOf="@id/coffee_type_4"
+        android:layout_marginStart="45dp"
+        android:text="Flat White"
+        android:textSize="14sp"
+        android:fontFamily="@font/poppins_medium_500"
+        android:textColor="@color/color_001833"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
