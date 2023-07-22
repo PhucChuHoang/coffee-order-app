@@ -1,11 +1,16 @@
 package com.example.coffee_order_app.ui.home
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.coffee_order_app.DetailsFragment
@@ -20,6 +25,12 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val inflater = TransitionInflater.from(requireContext())
+        exitTransition = inflater.inflateTransition(R.transition.fade)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,6 +40,9 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        ViewCompat.setTransitionName(binding.homeContentView.coffeeType1, "item_image")
+
         val root: View = binding.root
         return root
     }
@@ -44,7 +58,10 @@ class HomeFragment : Fragment() {
                     bundle.putInt("index", index)
                     val detailsFragment = DetailsFragment()
                     detailsFragment.arguments = bundle
-                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment)
+                    val extras = FragmentNavigatorExtras(
+                        binding.homeContentView.coffeeType1 to "hero_image"
+                    )
+                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, null, null, extras)
                 }
                 binding.homeContentView.coffeeType2 -> {
                     println("Cappuccino Selected")
