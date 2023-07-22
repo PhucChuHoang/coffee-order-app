@@ -37,8 +37,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val clickListener = View.OnClickListener { v ->
-            when (v) {
-                binding.coffeeType1 -> {
+                when (v) {
+                    binding.homeContentView.coffeeType1 -> {
                     val index = 1
                     val bundle = Bundle()
                     bundle.putInt("index", index)
@@ -46,13 +46,13 @@ class HomeFragment : Fragment() {
                     detailsFragment.arguments = bundle
                     findNavController().navigate(R.id.action_navigation_home_to_detailsFragment)
                 }
-                binding.coffeeType2 -> {
+                binding.homeContentView.coffeeType2 -> {
                     println("Cappuccino Selected")
                 }
-                binding.coffeeType3 -> {
+                binding.homeContentView.coffeeType3 -> {
                     println("Mocha Selected")
                 }
-                binding.coffeeType4 -> {
+                binding.homeContentView.coffeeType4 -> {
                     println("Flat White Selected")
                 }
                 binding.profileIcon -> {
@@ -61,10 +61,10 @@ class HomeFragment : Fragment() {
             }
         }
 
-        binding.coffeeType1.setOnClickListener(clickListener)
-        binding.coffeeType2.setOnClickListener(clickListener)
-        binding.coffeeType3.setOnClickListener(clickListener)
-        binding.coffeeType4.setOnClickListener(clickListener)
+        binding.homeContentView.coffeeType1.setOnClickListener(clickListener)
+        binding.homeContentView.coffeeType2.setOnClickListener(clickListener)
+        binding.homeContentView.coffeeType3.setOnClickListener(clickListener)
+        binding.homeContentView.coffeeType4.setOnClickListener(clickListener)
         binding.profileIcon.setOnClickListener(clickListener)
     }
 

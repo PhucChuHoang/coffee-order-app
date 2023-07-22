@@ -6,130 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <ImageView
-        android:id="@+id/profile_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="316dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="33dp"
-        android:src="@drawable/profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/buy_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:src="@drawable/buy"
-        app:layout_constraintEnd_toStartOf="@+id/profile_icon"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/rectangle_loyalty_card"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="89dp"
-        android:src="@drawable/rectangle_loyalty_card"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/white_rectangle_loyalty_card"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:src="@drawable/white_rectangle_loyalty_card"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/rectangle_loyalty_card" />
-
-    <ImageView
-        android:id="@+id/coffee_cup_slot_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/coffee_cup_fill"
-        app:layout_constraintStart_toStartOf="@id/white_rectangle_loyalty_card"
-        app:layout_constraintTop_toTopOf="@id/white_rectangle_loyalty_card" />
-
-    <ImageView
-        android:id="@+id/coffee_cup_slot_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2.22dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/coffee_cup_fill"
-        app:layout_constraintStart_toEndOf="@id/coffee_cup_slot_1"
-        app:layout_constraintTop_toTopOf="@id/white_rectangle_loyalty_card" />
-
-    <ImageView
-        android:id="@+id/coffee_cup_slot_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2.22dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/coffee_cup_fill"
-        app:layout_constraintStart_toEndOf="@id/coffee_cup_slot_2"
-        app:layout_constraintTop_toTopOf="@id/white_rectangle_loyalty_card" />
-
-    <ImageView
-        android:id="@+id/coffee_cup_slot_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2.22dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/coffee_cup_fill"
-        app:layout_constraintStart_toEndOf="@id/coffee_cup_slot_3"
-        app:layout_constraintTop_toTopOf="@id/white_rectangle_loyalty_card" />
-
-    <ImageView
-        android:id="@+id/coffee_cup_slot_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2.22dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/coffee_cup_empty"
-        app:layout_constraintStart_toEndOf="@id/coffee_cup_slot_4"
-        app:layout_constraintTop_toTopOf="@id/white_rectangle_loyalty_card" />
-
-    <ImageView
-        android:id="@+id/coffee_cup_slot_6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2.22dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/coffee_cup_empty"
-        app:layout_constraintStart_toEndOf="@id/coffee_cup_slot_5"
-        app:layout_constraintTop_toTopOf="@id/white_rectangle_loyalty_card" />
-
-    <ImageView
-        android:id="@+id/coffee_cup_slot_7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2.22dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/coffee_cup_empty"
-        app:layout_constraintStart_toEndOf="@id/coffee_cup_slot_6"
-        app:layout_constraintTop_toTopOf="@id/white_rectangle_loyalty_card" />
-
-    <ImageView
-        android:id="@+id/coffee_cup_slot_8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2.22dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/coffee_cup_empty"
-        app:layout_constraintStart_toEndOf="@id/coffee_cup_slot_7"
-        app:layout_constraintTop_toTopOf="@id/white_rectangle_loyalty_card" />
-
     <TextView
         android:id="@+id/good_morning_text"
         android:layout_width="wrap_content"
@@ -156,179 +32,111 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <ImageView
+        android:id="@+id/profile_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="14dp"
-        android:fontFamily="@font/poppins_medium_500"
-        android:text="Loyalty card"
-        android:textColor="@color/color_d8d8d8"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/rectangle_loyalty_card"
-        app:layout_constraintTop_toTopOf="@id/rectangle_loyalty_card" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="34dp"
-        android:fontFamily="@font/poppins_medium_500"
-        android:text="4 / 8"
-        android:textColor="@color/color_d8d8d8"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/rectangle_loyalty_card"
-        app:layout_constraintTop_toTopOf="@id/rectangle_loyalty_card" />
+        android:layout_marginStart="316dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="33dp"
+        android:src="@drawable/profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/rectangle_choose_coffee"
+        android:id="@+id/buy_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
-        android:src="@drawable/rectangle_choose_coffee"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/buy"
+        app:layout_constraintEnd_toStartOf="@+id/profile_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rectangle_loyalty_card"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="89dp"
+        android:padding="16dp"
+        android:background="@drawable/rectangle_loyalty_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rectangle_loyalty_card" />
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium_500"
+            android:text="Loyalty card"
+            android:textColor="@color/color_d8d8d8"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rectangle_loyalty_card" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_medium_500"
-        android:textColor="@color/color_d8d8d8"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="@id/rectangle_choose_coffee"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@id/rectangle_choose_coffee"
-        android:layout_marginStart="31dp"
-        android:text="Choose your coffee"/>
+        <TextView
+            android:id="@+id/loyalty_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium_500"
+            android:text="4 / 8"
+            android:textColor="@color/color_d8d8d8"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/white_rectangle_loyalty_card"
+            app:layout_constraintTop_toBottomOf="@id/loyalty_value"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/coffee_cup_fill" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/coffee_cup_fill" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/coffee_cup_fill" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/coffee_cup_fill" />
 
-    <ImageView
-        android:id="@+id/coffee_type_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="72dp"
-        android:src="@drawable/rectangle_coffee_cup"
-        app:layout_constraintStart_toStartOf="@id/rectangle_choose_coffee"
-        app:layout_constraintTop_toTopOf="@id/rectangle_choose_coffee" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/coffee_cup_empty" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/coffee_cup_empty" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/coffee_cup_empty" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/coffee_cup_empty" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/image_coffee_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/coffee1"
-        app:layout_constraintTop_toTopOf="@id/coffee_type_1"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="@id/coffee_type_1"
-        android:layout_marginStart="22dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/image_coffee_1"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="@id/coffee_type_1"
-        android:layout_marginStart="41dp"
-        android:text="Americano"
-        android:textSize="14sp"
-        android:fontFamily="@font/poppins_medium_500"
-        android:textColor="@color/color_001833"/>
-
-    <ImageView
-        android:id="@+id/coffee_type_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/rectangle_coffee_cup"
-        app:layout_constraintTop_toTopOf="@id/rectangle_choose_coffee"
-        android:layout_marginTop="72dp"
-        app:layout_constraintStart_toEndOf="@id/coffee_type_1"
-        android:layout_marginStart="16dp"/>
-
-    <ImageView
-        android:id="@+id/image_coffee_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/coffee2"
-        app:layout_constraintTop_toTopOf="@id/coffee_type_2"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="@id/coffee_type_2"
-        android:layout_marginStart="26dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/image_coffee_2"
-        android:layout_marginTop="17dp"
-        app:layout_constraintStart_toStartOf="@id/coffee_type_2"
-        android:layout_marginStart="32dp"
-        android:text="Cappuccino"
-        android:textSize="14sp"
-        android:fontFamily="@font/poppins_medium_500"
-        android:textColor="@color/color_001833"/>
-
-    <ImageView
-        android:id="@+id/coffee_type_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/rectangle_coffee_cup"
-        app:layout_constraintTop_toBottomOf="@id/coffee_type_1"
-        android:layout_marginTop="17dp"
-        app:layout_constraintStart_toStartOf="@id/rectangle_choose_coffee"
-        android:layout_marginStart="26dp"/>
-
-    <ImageView
-        android:id="@+id/image_coffee_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/coffee3"
-        app:layout_constraintTop_toTopOf="@id/coffee_type_3"
-        android:layout_marginTop="37dp"
-        app:layout_constraintStart_toStartOf="@id/coffee_type_3"
-        android:layout_marginStart="25dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/image_coffee_3"
-        android:layout_marginTop="13dp"
-        app:layout_constraintStart_toStartOf="@id/coffee_type_3"
-        android:layout_marginStart="53dp"
-        android:text="Mocha"
-        android:textSize="14sp"
-        android:fontFamily="@font/poppins_medium_500"
-        android:textColor="@color/color_001833"/>
-
-    <ImageView
-        android:id="@+id/coffee_type_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/rectangle_coffee_cup"
-        app:layout_constraintTop_toBottomOf="@id/coffee_type_2"
-        android:layout_marginTop="17dp"
-        app:layout_constraintStart_toEndOf="@id/coffee_type_3"
-        android:layout_marginStart="16dp"/>
-
-    <ImageView
-        android:id="@+id/image_coffee_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/coffee4"
-        app:layout_constraintTop_toTopOf="@id/coffee_type_4"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="@id/coffee_type_4"
-        android:layout_marginStart="29dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/image_coffee_4"
-        android:layout_marginTop="17dp"
-        app:layout_constraintStart_toStartOf="@id/coffee_type_4"
-        android:layout_marginStart="45dp"
-        android:text="Flat White"
-        android:textSize="14sp"
-        android:fontFamily="@font/poppins_medium_500"
-        android:textColor="@color/color_001833"/>
+    <include
+        android:id="@+id/homeContentView"
+        android:layout_marginTop="38dp"
+        app:layout_constraintTop_toBottomOf="@id/rectangle_loyalty_card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        layout="@layout/home_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
