@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.coffee_order_app.DetailsFragment
 import com.example.coffee_order_app.R
 import com.example.coffee_order_app.databinding.FragmentHomeBinding
 
@@ -36,9 +37,14 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val clickListener = View.OnClickListener { v ->
-            when (v) {
-                binding.homeContentView.coffeeType1 -> {
-                    println("Americano Selected")
+                when (v) {
+                    binding.homeContentView.coffeeType1 -> {
+                    val index = 1
+                    val bundle = Bundle()
+                    bundle.putInt("index", index)
+                    val detailsFragment = DetailsFragment()
+                    detailsFragment.arguments = bundle
+                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment)
                 }
                 binding.homeContentView.coffeeType2 -> {
                     println("Cappuccino Selected")
@@ -50,7 +56,7 @@ class HomeFragment : Fragment() {
                     println("Flat White Selected")
                 }
                 binding.profileIcon -> {
-                    findNavController().navigate(R.id.action_navigation_home_to_profileFragment2)
+                    findNavController().navigate(R.id.action_navigation_home_to_profileFragment)
                 }
             }
         }
