@@ -25,7 +25,7 @@ class HomeActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.navigation_home || destination.id == R.id.navigation_dashboard || destination.id == R.id.navigation_notifications) {
+            if(destination.id == R.id.navigation_home || destination.id == R.id.navigation_dashboard || destination.id == R.id.orderFragment) {
                 navView.visibility = View.VISIBLE
             } else {
                 navView.visibility = View.GONE

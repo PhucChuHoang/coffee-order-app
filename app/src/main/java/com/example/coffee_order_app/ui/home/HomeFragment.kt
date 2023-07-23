@@ -51,8 +51,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val clickListener = View.OnClickListener { v ->
-                when (v) {
-                    binding.homeContentView.coffeeType1 -> {
+            when (v) {
+                binding.homeContentView.coffeeType1 -> {
                     val index = 1
                     val bundle = Bundle()
                     bundle.putInt("index", index)
