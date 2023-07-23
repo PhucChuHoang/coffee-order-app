@@ -26,6 +26,8 @@ class DetailsFragment : Fragment() {
 
     private var index: Int? = null
 
+    private lateinit var viewModel: DetailsViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,18 +39,35 @@ class DetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val detailsViewModel =
-            ViewModelProvider(this)[DetailsViewModel::class.java]
-
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this).get(DetailsViewModel::class.java)
         val root: View = binding.root
         index = arguments?.getInt("intKey", 1)
-        println(index)
         when(index) {
-            1 -> binding.detailsImage.setImageResource(R.drawable.coffee1)
-            2 -> binding.detailsImage.setImageResource(R.drawable.coffee2)
-            3 -> binding.detailsImage.setImageResource(R.drawable.coffee3)
-            4 -> binding.detailsImage.setImageResource(R.drawable.coffee4)
+            1 -> {
+                binding.detailsImage.setImageResource(R.drawable.coffee1)
+                viewModel.coffeeItem.coffeeType = 1
+                viewModel.coffeeItem.price = 3.50
+                binding.totalAmountTextview.setText("$3.50")
+            }
+            2 -> {
+                binding.detailsImage.setImageResource(R.drawable.coffee2)
+                viewModel.coffeeItem.coffeeType = 2
+                viewModel.coffeeItem.price = 4.00
+                binding.totalAmountTextview.setText("$4.00")
+            }
+            3 -> {
+                binding.detailsImage.setImageResource(R.drawable.coffee3)
+                viewModel.coffeeItem.coffeeType = 3
+                viewModel.coffeeItem.price = 4.00
+                binding.totalAmountTextview.setText("$4.00")
+            }
+            4 -> {
+                binding.detailsImage.setImageResource(R.drawable.coffee4)
+                viewModel.coffeeItem.coffeeType = 4
+                viewModel.coffeeItem.price = 4.00
+                binding.totalAmountTextview.setText("$4.00")
+            }
         }
         return root
     }
@@ -58,48 +77,92 @@ class DetailsFragment : Fragment() {
 
         val heroImageView = view.findViewById<ImageView>(R.id.details_image)
         ViewCompat.setTransitionName(heroImageView, "hero_image")
+        val coffeeItem = viewModel.coffeeItem
+        if (coffeeItem.coffeeType == 1) {
+            binding.coffeeName.text = "Americano"
+        }
+        else if (coffeeItem.coffeeType == 2) {
+            binding.coffeeName.text = "Cappuccino"
+        }
+        else if (coffeeItem.coffeeType == 3) {
+            binding.coffeeName.text = "Mocha"
+        }
+        else if (coffeeItem.coffeeType == 4) {
+            binding.coffeeName.text = "Flat White"
+        }
         val clickListener = View.OnClickListener { v ->
             when(v) {
                 binding.increaseQuantity -> {
                     binding.numberOfCoffee.text = (binding.numberOfCoffee.text.toString().toInt() + 1).toString()
+                    coffeeItem.quantity = binding.numberOfCoffee.text.toString().toInt()
                 }
                 binding.decreaseQuantity -> {
                     if (binding.numberOfCoffee.text.toString().toInt() > 1) {
                         binding.numberOfCoffee.text = (binding.numberOfCoffee.text.toString().toInt() - 1).toString()
+                        coffeeItem.quantity = binding.numberOfCoffee.text.toString().toInt()
                     }
                 }
                 binding.singleShotBtn -> {
                     setShot(1)
+                    coffeeItem.shot = 1
                 }
                 binding.doubleShotBtn -> {
                     setShot(2)
+                    coffeeItem.shot = 2
                 }
                 binding.dineIn -> {
                     setDineInTakeAway(1)
+                    coffeeItem.dineInOrTakeAway = true
                 }
                 binding.takeAway -> {
                     setDineInTakeAway(2)
+                    coffeeItem.dineInOrTakeAway = false
                 }
                 binding.coffeeSizeSmall -> {
                     setCupSize(1)
+                    coffeeItem.size = 1
                 }
                 binding.coffeeSizeMedium -> {
                     setCupSize(2)
+                    coffeeItem.size = 2
                 }
                 binding.coffeeSizeLarge -> {
                     setCupSize(3)
+                    coffeeItem.size = 3
                 }
                 binding.coffeeIceSmall -> {
                     setIceButtonColor(1)
+                    coffeeItem.ice = 1
                 }
                 binding.coffeeIceMedium -> {
                     setIceButtonColor(2)
+                    coffeeItem.ice = 2
                 }
                 binding.coffeeIceLarge -> {
                     setIceButtonColor(3)
+                    coffeeItem.ice = 3
+                }
+                binding.addToCartBtn -> {
+
                 }
             }
+            if(coffeeItem.size == 1) {
+                val totalPrice = (coffeeItem.price - 0.50) * coffeeItem.quantity
+                val formattedTotal = String.format("%.2f", totalPrice)
+                binding.totalAmountTextview.text = "$" + formattedTotal
+            }
+            else if(coffeeItem.size == 2) {
+                val totalPrice = coffeeItem.price * coffeeItem.quantity
+                val formattedTotal = String.format("%.2f", totalPrice)
+                binding.totalAmountTextview.text = "$" + formattedTotal
+            }
+            else if(coffeeItem.size == 3) {
+                val totalPrice = (coffeeItem.price + 0.50) * coffeeItem.quantity
+                val formattedTotal = String.format("%.2f", totalPrice)
+                binding.totalAmountTextview.text = "$" + formattedTotal
+            }
         }
+        binding.addToCartBtn.setOnClickListener(clickListener)
         binding.increaseQuantity.setOnClickListener(clickListener)
         binding.decreaseQuantity.setOnClickListener(clickListener)
         binding.dineIn.setOnClickListener(clickListener)
