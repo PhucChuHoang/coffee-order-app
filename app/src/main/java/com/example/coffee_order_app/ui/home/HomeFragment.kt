@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.coffee_order_app.R
@@ -37,7 +38,10 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        ViewCompat.setTransitionName(binding.homeContentView.coffeeType1, "item_image")
+        ViewCompat.setTransitionName(binding.homeContentView.coffeeType1, "item_image1")
+        ViewCompat.setTransitionName(binding.homeContentView.coffeeType2, "item_image2")
+        ViewCompat.setTransitionName(binding.homeContentView.coffeeType3, "item_image3")
+        ViewCompat.setTransitionName(binding.homeContentView.coffeeType4, "item_image4")
 
         val root: View = binding.root
         return root
@@ -47,43 +51,40 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val clickListener = View.OnClickListener { v ->
+            val bundle = Bundle()
+            val extras: FragmentNavigator.Extras
             when (v) {
                 binding.homeContentView.coffeeType1 -> {
-                    val bundle = Bundle()
                     bundle.putInt("intKey", 1)
-                    val extras = FragmentNavigatorExtras(
+                    extras = FragmentNavigatorExtras(
                         binding.homeContentView.coffeeType1 to "hero_image"
                     )
-                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle, null, extras)
                 }
                 binding.homeContentView.coffeeType2 -> {
-                    val bundle = Bundle()
-                    bundle.putInt("index", 2)
-                    val extras = FragmentNavigatorExtras(
+                    bundle.putInt("intKey", 2)
+                    extras = FragmentNavigatorExtras(
                         binding.homeContentView.coffeeType2 to "hero_image"
                     )
-                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle, null, extras)
                 }
                 binding.homeContentView.coffeeType3 -> {
-                    val bundle = Bundle()
-                    bundle.putInt("index", 3)
-                    val extras = FragmentNavigatorExtras(
+                    bundle.putInt("intKey", 3)
+                    extras = FragmentNavigatorExtras(
                         binding.homeContentView.coffeeType3 to "hero_image"
                     )
-                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle, null, extras)
                 }
                 binding.homeContentView.coffeeType4 -> {
-                    val bundle = Bundle()
-                    bundle.putInt("index", 4)
-                    val extras = FragmentNavigatorExtras(
+                    bundle.putInt("intKey", 4)
+                    extras = FragmentNavigatorExtras(
                         binding.homeContentView.coffeeType4 to "hero_image"
                     )
-                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle, null, extras)
                 }
                 binding.profileIcon -> {
                     findNavController().navigate(R.id.action_navigation_home_to_profileFragment)
+                    return@OnClickListener
                 }
+                else -> return@OnClickListener
             }
+            findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle, null, extras)
         }
 
         binding.homeContentView.coffeeType1.setOnClickListener(clickListener)
