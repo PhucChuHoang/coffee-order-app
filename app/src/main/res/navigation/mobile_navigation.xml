@@ -32,13 +32,13 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.coffee_order_app.ProfileFragment"
+        android:name="com.example.coffee_order_app.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.coffee_order_app.DetailsFragment"
+        android:name="com.example.coffee_order_app.ui.details.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details">
     </fragment>

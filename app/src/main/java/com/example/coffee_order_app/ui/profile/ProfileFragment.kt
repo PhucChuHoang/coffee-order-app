@@ -1,4 +1,4 @@
-package com.example.coffee_order_app
+package com.example.coffee_order_app.ui.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

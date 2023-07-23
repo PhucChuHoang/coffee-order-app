@@ -1,21 +1,16 @@
-package com.example.coffee_order_app
+package com.example.coffee_order_app.ui.details
 
 import android.os.Bundle
-import android.telecom.Call.Details
 import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.activity.OnBackPressedCallback
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.example.coffee_order_app.databinding.ActivityHomeBinding
+import com.example.coffee_order_app.R
 import com.example.coffee_order_app.databinding.FragmentDetailsBinding
-import com.example.coffee_order_app.databinding.FragmentHomeBinding
 import com.example.coffee_order_app.ui.home.HomeViewModel
 
 class DetailsFragment : Fragment() {
