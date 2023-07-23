@@ -82,6 +82,10 @@ class HomeFragment : Fragment() {
                     findNavController().navigate(R.id.action_navigation_home_to_profileFragment)
                     return@OnClickListener
                 }
+                binding.buyIcon -> {
+                    findNavController().navigate(R.id.action_navigation_home_to_cartFragment)
+                    return@OnClickListener
+                }
                 else -> return@OnClickListener
             }
             findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle, null, extras)
@@ -92,6 +96,7 @@ class HomeFragment : Fragment() {
         binding.homeContentView.coffeeType3.setOnClickListener(clickListener)
         binding.homeContentView.coffeeType4.setOnClickListener(clickListener)
         binding.profileIcon.setOnClickListener(clickListener)
+        binding.buyIcon.setOnClickListener(clickListener)
     }
 
     override fun onDestroyView() {

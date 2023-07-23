@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_navigation_home_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
 
     <fragment
@@ -42,5 +45,10 @@
         android:label="fragment_details"
         tools:layout="@layout/fragment_details">
     </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.coffee_order_app.ui.cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 
 </navigation>
