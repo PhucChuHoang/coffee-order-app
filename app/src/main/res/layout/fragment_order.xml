@@ -52,7 +52,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_on_going" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -97,7 +96,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/on_going_box" />
+        app:layout_constraintTop_toBottomOf="@id/text_my_order"
+        android:layout_marginTop="68dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/on_going_recycler_view"
@@ -108,5 +108,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/history_box"
         android:layout_marginTop="36dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/history_box"
+        android:layout_marginTop="36dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

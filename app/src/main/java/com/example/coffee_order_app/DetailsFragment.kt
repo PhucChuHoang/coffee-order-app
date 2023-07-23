@@ -42,10 +42,13 @@ class DetailsFragment : Fragment() {
 
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        val index = arguments?.getInt("index")
+        val index = arguments?.getInt("intKey", 1)
         println(index)
         when(index) {
             1 -> binding.detailsImage.setImageResource(R.drawable.coffee1)
+            2 -> binding.detailsImage.setImageResource(R.drawable.coffee2)
+            3 -> binding.detailsImage.setImageResource(R.drawable.coffee3)
+            4 -> binding.detailsImage.setImageResource(R.drawable.coffee4)
         }
         return root
     }

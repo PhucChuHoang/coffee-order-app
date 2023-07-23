@@ -53,24 +53,36 @@ class HomeFragment : Fragment() {
         val clickListener = View.OnClickListener { v ->
             when (v) {
                 binding.homeContentView.coffeeType1 -> {
-                    val index = 1
                     val bundle = Bundle()
-                    bundle.putInt("index", index)
-                    val detailsFragment = DetailsFragment()
-                    detailsFragment.arguments = bundle
+                    bundle.putInt("intKey", 1)
                     val extras = FragmentNavigatorExtras(
                         binding.homeContentView.coffeeType1 to "hero_image"
                     )
-                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, null, null, extras)
+                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle, null, extras)
                 }
                 binding.homeContentView.coffeeType2 -> {
-                    println("Cappuccino Selected")
+                    val bundle = Bundle()
+                    bundle.putInt("index", 2)
+                    val extras = FragmentNavigatorExtras(
+                        binding.homeContentView.coffeeType2 to "hero_image"
+                    )
+                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle, null, extras)
                 }
                 binding.homeContentView.coffeeType3 -> {
-                    println("Mocha Selected")
+                    val bundle = Bundle()
+                    bundle.putInt("index", 3)
+                    val extras = FragmentNavigatorExtras(
+                        binding.homeContentView.coffeeType3 to "hero_image"
+                    )
+                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle, null, extras)
                 }
                 binding.homeContentView.coffeeType4 -> {
-                    println("Flat White Selected")
+                    val bundle = Bundle()
+                    bundle.putInt("index", 4)
+                    val extras = FragmentNavigatorExtras(
+                        binding.homeContentView.coffeeType4 to "hero_image"
+                    )
+                    findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle, null, extras)
                 }
                 binding.profileIcon -> {
                     findNavController().navigate(R.id.action_navigation_home_to_profileFragment)

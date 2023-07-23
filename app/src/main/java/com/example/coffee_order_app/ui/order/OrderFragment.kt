@@ -1,5 +1,6 @@
 package com.example.coffee_order_app.ui.order
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,9 +27,37 @@ class OrderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val layoutManager = LinearLayoutManager(view.context)
-        binding.onGoingRecyclerView.layoutManager = layoutManager
+        val layoutManagerOnGoing = LinearLayoutManager(view.context)
+        binding.onGoingRecyclerView.layoutManager = layoutManagerOnGoing
         binding.onGoingRecyclerView.adapter = OrderAdapter(arrayOf("Americano", "Cappuccino", "Flat White", "Latte"))
+        val layoutManagerHistory = LinearLayoutManager(view.context)
+        binding.historyRecyclerView.layoutManager = layoutManagerHistory
+        binding.historyRecyclerView.adapter = OrderAdapter(arrayOf("Cappuccino", "Flat White", "Latte", "Americano"))
+
+        val clickListener = View.OnClickListener { v ->
+            when(v) {
+                binding.historyBox -> {
+                    binding.onGoingRecyclerView.visibility = View.GONE
+                    binding.historyRecyclerView.visibility = View.VISIBLE
+                    binding.historyRecyclerView.bringToFront()
+                    binding.textOnGoing.setTextColor(Color.parseColor("#D8D8D8"))
+                    binding.textOnHistory.setTextColor(Color.parseColor("#001833"))
+                    binding.activeBarOnGoing.visibility = View.INVISIBLE
+                    binding.activeBarHistory.visibility = View.VISIBLE
+                }
+                binding.onGoingBox -> {
+                    binding.onGoingRecyclerView.visibility = View.VISIBLE
+                    binding.historyRecyclerView.visibility = View.GONE
+                    binding.onGoingRecyclerView.bringToFront()
+                    binding.textOnHistory.setTextColor(Color.parseColor("#D8D8D8"))
+                    binding.textOnGoing.setTextColor(Color.parseColor("#001833"))
+                    binding.activeBarOnGoing.visibility = View.VISIBLE
+                    binding.activeBarHistory.visibility = View.INVISIBLE
+                }
+            }
+        }
+        binding.historyBox.setOnClickListener(clickListener)
+        binding.onGoingBox.setOnClickListener(clickListener)
     }
 
     override fun onDestroyView() {

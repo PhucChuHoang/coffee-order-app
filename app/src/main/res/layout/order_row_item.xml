@@ -13,7 +13,8 @@
         android:layout_marginStart="11dp"
         app:layout_constraintTop_toTopOf="@id/cup_icon"
         android:text="Americano"
-        android:textSize="10sp"/>
+        android:textSize="10sp"
+        android:textColor="@color/color_324A59"/>
 
     <TextView
         android:id="@+id/order_location"
@@ -23,7 +24,8 @@
         app:layout_constraintTop_toTopOf="@id/location_icon"
         android:textSize="10sp"
         app:layout_constraintStart_toEndOf="@id/location_icon"
-        android:layout_marginStart="9dp"/>
+        android:layout_marginStart="9dp"
+        android:textColor="@color/color_324A59"/>
 
     <TextView
         android:id="@+id/order_price"
