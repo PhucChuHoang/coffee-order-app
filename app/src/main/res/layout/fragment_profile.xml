@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.profile.ProfileFragment"
+    android:id="@+id/layout_profile">
 
     <TextView
         android:id="@+id/profile_text"
@@ -53,7 +54,9 @@
             android:layout_width="167dp"
             android:layout_height="wrap_content"
             android:text="Anderson"
+            android:textColor="@color/black"
             android:textSize="14sp"
+            android:enabled="false"
             app:layout_constraintStart_toStartOf="@id/full_name"
             app:layout_constraintTop_toBottomOf="@id/full_name" />
 
@@ -95,6 +98,8 @@
             android:layout_height="wrap_content"
             android:text="+60134589525"
             android:textSize="14sp"
+            android:enabled="false"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/phone_number"
             app:layout_constraintTop_toBottomOf="@id/phone_number" />
 
@@ -135,6 +140,8 @@
             android:layout_height="wrap_content"
             android:text="Anderson@email.com"
             android:textSize="14sp"
+            android:textColor="@color/black"
+            android:enabled="false"
             app:layout_constraintStart_toStartOf="@id/email"
             app:layout_constraintTop_toBottomOf="@id/email" />
 
@@ -170,10 +177,13 @@
             android:layout_marginTop="50dp"/>
 
         <EditText
+            android:id="@+id/edit_address"
             android:layout_width="167dp"
             android:layout_height="wrap_content"
             android:text="3 Addersion Court Chino Hills, HO56824, United State"
             android:textSize="14sp"
+            android:enabled="false"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/address"
             app:layout_constraintTop_toBottomOf="@id/address" />
 
