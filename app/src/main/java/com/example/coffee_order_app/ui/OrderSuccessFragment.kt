@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.coffee_order_app.R
 import com.example.coffee_order_app.databinding.FragmentOrderSuccessBinding
@@ -30,7 +31,7 @@ class OrderSuccessFragment : Fragment() {
         var clickListener = View.OnClickListener { v ->
             when(v) {
                 binding.trackButton -> {
-                    findNavController().navigate(R.id.action_orderSuccessFragment_to_orderFragment)
+                    findNavController().navigate(R.id.action_orderSuccessFragment_to_orderFragment, null, NavOptions.Builder().setPopUpTo(findNavController().graph.startDestinationId, true).build())
                 }
             }
         }
