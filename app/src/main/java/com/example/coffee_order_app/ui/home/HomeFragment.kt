@@ -80,6 +80,7 @@ class HomeFragment : Fragment() {
                 }
                 binding.profileIcon -> {
                     findNavController().navigate(R.id.action_navigation_home_to_profileFragment)
+
                     return@OnClickListener
                 }
                 binding.buyIcon -> {

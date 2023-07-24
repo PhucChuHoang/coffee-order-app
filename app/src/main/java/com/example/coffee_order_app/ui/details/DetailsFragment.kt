@@ -1,9 +1,9 @@
 package com.example.coffee_order_app.ui.details
 
-import android.content.res.ColorStateList
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.provider.Settings.Global
 import android.transition.TransitionInflater
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,14 +12,12 @@ import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources.getColorStateList
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.coffee_order_app.Globals
 import com.example.coffee_order_app.R
 import com.example.coffee_order_app.databinding.FragmentDetailsBinding
-import com.example.coffee_order_app.ui.cart.CartItem
-import com.example.coffee_order_app.ui.cart.CartViewModel
-import com.example.coffee_order_app.ui.home.HomeViewModel
 
 class DetailsFragment : Fragment() {
 
@@ -39,6 +37,7 @@ class DetailsFragment : Fragment() {
         sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -170,6 +169,11 @@ class DetailsFragment : Fragment() {
                     findNavController().navigate(R.id.action_detailsFragment_to_cartFragment)
                 }
                 binding.backButtonDetails -> {
+                    val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+
+                    // Get the back stack entry count
+                    val backStackEntryCount = fragmentManager.backStackEntryCount
+                    Log.d("DetailsFragment", "BackStackEntryCount: $backStackEntryCount")
                     Globals.coffeeItem = CoffeeItem(0, 1, 1, false, 2, 3, 3.00)
                     findNavController().navigate(R.id.action_detailsFragment_to_navigation_home)
                 }

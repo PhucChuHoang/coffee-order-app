@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coffee_order_app.Globals
+import com.example.coffee_order_app.R
 import com.example.coffee_order_app.adapter.CartAdapter
 import com.example.coffee_order_app.databinding.FragmentCartBinding
 import com.example.coffee_order_app.ui.details.CoffeeItem
@@ -37,9 +39,9 @@ class CartFragment : Fragment() {
             arguments?.getBoolean("hot_cold") ?: false,
             arguments?.getInt("size") ?: 1,
             arguments?.getInt("ice") ?: 1,
-            0.0
+            arguments?.getDouble("price") ?: 0.0
         )
-        var totalPrice: Double = arguments?.getDouble("total_price")?: 0.0
+        val totalPrice: Double = arguments?.getDouble("total_price")?: 0.0
         if (coffeeItem.coffeeType != 0) {
             cartViewModel.addCartItem(CartItem(coffeeItem, totalPrice))
         }
@@ -53,6 +55,23 @@ class CartFragment : Fragment() {
         binding.totalPrice.text = totalPrice
         binding.recyclerViewCart.layoutManager = layoutManager
         binding.recyclerViewCart.adapter = CartAdapter(Globals.cartItemList)
+        val clickListener = View.OnClickListener { view ->
+            when (view) {
+                binding.checkoutButton -> {
+//                    val bundle = Bundle()
+//                    bundle.putDouble("total_price", cartViewModel.getTotalPrice())
+//                    bundle.putParcelableArrayList("cart_item_list", ArrayList(Globals.cartItemList))
+//                    val fragment = CheckoutFragment()
+//                    fragment.arguments = bundle
+//                    val transaction = parentFragmentManager.beginTransaction()
+//                    transaction.replace(R.id.nav_host_fragment_content_main, fragment)
+//                    transaction.addToBackStack(null)
+//                    transaction.commit()
+                    findNavController().navigate(R.id.action_cartFragment_to_orderSuccessFragment)
+                }
+            }
+        }
+        binding.checkoutButton.setOnClickListener(clickListener)
     }
 
     override fun onDestroyView() {
