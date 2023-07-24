@@ -80,7 +80,6 @@ class HomeFragment : Fragment() {
                 }
                 binding.profileIcon -> {
                     findNavController().navigate(R.id.action_navigation_home_to_profileFragment)
-
                     return@OnClickListener
                 }
                 binding.buyIcon -> {
@@ -91,7 +90,6 @@ class HomeFragment : Fragment() {
             }
             findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle, null, extras)
         }
-
         binding.homeContentView.coffeeType1.setOnClickListener(clickListener)
         binding.homeContentView.coffeeType2.setOnClickListener(clickListener)
         binding.homeContentView.coffeeType3.setOnClickListener(clickListener)

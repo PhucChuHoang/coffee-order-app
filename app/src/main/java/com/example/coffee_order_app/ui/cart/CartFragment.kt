@@ -69,9 +69,13 @@ class CartFragment : Fragment() {
 //                    transaction.commit()
                     findNavController().navigate(R.id.action_cartFragment_to_orderSuccessFragment)
                 }
+                binding.returnButton -> {
+                    findNavController().popBackStack()
+                }
             }
         }
         binding.checkoutButton.setOnClickListener(clickListener)
+        binding.returnButton.setOnClickListener(clickListener)
     }
 
     override fun onDestroyView() {

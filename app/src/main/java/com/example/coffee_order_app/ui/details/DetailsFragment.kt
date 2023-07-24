@@ -169,13 +169,8 @@ class DetailsFragment : Fragment() {
                     findNavController().navigate(R.id.action_detailsFragment_to_cartFragment)
                 }
                 binding.backButtonDetails -> {
-                    val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
-
-                    // Get the back stack entry count
-                    val backStackEntryCount = fragmentManager.backStackEntryCount
-                    Log.d("DetailsFragment", "BackStackEntryCount: $backStackEntryCount")
                     Globals.coffeeItem = CoffeeItem(0, 1, 1, false, 2, 3, 3.00)
-                    findNavController().navigate(R.id.action_detailsFragment_to_navigation_home)
+                    findNavController().popBackStack()
                 }
             }
             if(Globals.coffeeItem.size == 1) {

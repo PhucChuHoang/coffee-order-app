@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.coffee_order_app.R
 import com.example.coffee_order_app.databinding.FragmentOrderSuccessBinding
 class OrderSuccessFragment : Fragment() {
     private var _binding: FragmentOrderSuccessBinding? = null
@@ -25,14 +27,14 @@ class OrderSuccessFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var numFragments = childFragmentManager.backStackEntryCount
         Log.d("OrderSuccessFragment", "BackStackEntryCount: $numFragments")
-//        var clickListener = View.OnClickListener { v ->
-//            when(v) {
-//                binding.trackButton -> {
-//                    findNavController().navigate(R.id.action_orderSuccessFragment_to_orderFragment)
-//                }
-//            }
-//        }
-//        binding.trackButton.setOnClickListener(clickListener)
+        var clickListener = View.OnClickListener { v ->
+            when(v) {
+                binding.trackButton -> {
+                    findNavController().navigate(R.id.action_orderSuccessFragment_to_orderFragment)
+                }
+            }
+        }
+        binding.trackButton.setOnClickListener(clickListener)
     }
 
     override fun onDestroyView() {
