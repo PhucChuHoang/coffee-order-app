@@ -5,15 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="327dp"
     android:layout_height="110dp"
-    android:id="@+id/father_box">
+    android:id="@+id/father_cart_row_item">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="327dp"
         android:layout_height="96dp"
         android:background="@drawable/rounded_bottom_nav_view_background"
-        app:layout_constraintBottom_toBottomOf="@id/father_box"
-        app:layout_constraintTop_toTopOf="@id/father_box"
-        app:layout_constraintStart_toStartOf="@id/father_box"
+        app:layout_constraintBottom_toBottomOf="@id/father_cart_row_item"
+        app:layout_constraintTop_toTopOf="@id/father_cart_row_item"
+        app:layout_constraintStart_toStartOf="@id/father_cart_row_item"
         app:layout_constraintVertical_bias="0.5">
 
         <ImageView

@@ -44,6 +44,12 @@
         android:name="com.example.coffee_order_app.ui.details.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_detailsFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"

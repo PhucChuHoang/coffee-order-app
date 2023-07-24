@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/back_button"
+        android:id="@+id/back_button_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="57dp"
@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="@id/cart_button"
         app:layout_constraintDimensionRatio="H,2.15:1"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/back_button"
+        app:layout_constraintStart_toStartOf="@id/back_button_details"
         app:layout_constraintTop_toBottomOf="@id/text_details" />
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_marginTop="16dp"
@@ -172,21 +172,21 @@
                 android:layout_centerVertical="true"
                 android:text="Select"/>
             <android.widget.Button
-                android:id="@+id/dine_in"
+                android:id="@+id/hot_coffee"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:padding="0dp"
                 android:paddingHorizontal="16dp"
                 android:textSize="12sp"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@id/take_away"
+                android:layout_toLeftOf="@id/cold_coffee"
                 android:layout_marginEnd="32dp"
                 android:textColor="#001833"
                 android:backgroundTint="#d8d8d8"
                 android:background="@drawable/coffee_cup"/>
 
             <android.widget.Button
-                android:id="@+id/take_away"
+                android:id="@+id/cold_coffee"
                 android:layout_width="20dp"
                 android:layout_height="34dp"
                 android:padding="0dp"
