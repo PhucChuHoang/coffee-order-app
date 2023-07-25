@@ -66,6 +66,9 @@ class CartFragment : Fragment() {
 //                    transaction.replace(R.id.nav_host_fragment_content_main, fragment)
 //                    transaction.addToBackStack(null)
 //                    transaction.commit()
+                    for (i in 0..Globals.cartItemList.size - 1) {
+                        Globals.loyaltyPoint += Globals.cartItemList.get(i).coffeeItem.quantity
+                    }
                     findNavController().navigate(R.id.action_cartFragment_to_orderSuccessFragment)
                 }
                 binding.returnButton -> {
