@@ -30,7 +30,6 @@ class CartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         cartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
-        // Inflate the layout for this fragment
         _binding = FragmentCartBinding.inflate(inflater, container, false)
         val coffeeItem= CoffeeItem(
             arguments?.getInt("type_coffee") ?: 0,

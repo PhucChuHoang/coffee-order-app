@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.example.coffee_order_app.Globals
+import com.example.coffee_order_app.HomeActivity
 import com.example.coffee_order_app.R
 import com.example.coffee_order_app.databinding.FragmentHomeBinding
 
@@ -31,8 +33,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
@@ -41,7 +41,11 @@ class HomeFragment : Fragment() {
         ViewCompat.setTransitionName(binding.homeContentView.coffeeType3, "item_image3")
         ViewCompat.setTransitionName(binding.homeContentView.coffeeType4, "item_image4")
 
+        Globals.setLoyaltyCardView(Globals.loyaltyPoint, binding.loyaltyCard.root)
         val root: View = binding.root
+        binding.userNameDisplay.text = Globals.user.name
+        val pointString = Globals.loyaltyPoint.toString() + " / 8"
+        binding.loyaltyCard.loyaltyValue.text = pointString
         return root
     }
 

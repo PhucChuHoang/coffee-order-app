@@ -23,8 +23,6 @@ class DetailsFragment : Fragment() {
 
     private var _binding: FragmentDetailsBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private var index: Int? = null
@@ -213,10 +211,8 @@ class DetailsFragment : Fragment() {
                 else -> binding.doubleShotBtn
             }
             if (i == index) {
-//              button.backgroundTintList = getColorStateList(requireContext(), R.color.color_324A59)
                 button.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorAccent))
             } else {
-//              button.backgroundTintList = getColorStateList(requireContext(), R.color.white)
                 button.setTextColor(ContextCompat.getColor(requireContext(), R.color.color_001833))
             }
         }

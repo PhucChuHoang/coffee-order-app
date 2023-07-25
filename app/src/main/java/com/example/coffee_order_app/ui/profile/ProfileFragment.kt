@@ -21,7 +21,6 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         binding.editName.setText(Globals.user.name)
         binding.editPhoneNumber.setText(Globals.user.phone_number)
@@ -73,7 +72,6 @@ class ProfileFragment : Fragment() {
     private fun toggleEditText(editText: EditText) {
         if (editText.isEnabled) {
             editText.isEnabled = false
-            // Update the corresponding value in the Globals.user object
             when (editText) {
                 binding.editName -> Globals.user.name = editText.text.toString()
                 binding.editPhoneNumber -> Globals.user.phone_number = editText.text.toString()
