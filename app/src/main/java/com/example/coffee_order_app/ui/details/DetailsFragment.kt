@@ -158,6 +158,7 @@ class DetailsFragment : Fragment() {
                         putInt("size", Globals.coffeeItem.size)
                         putInt("ice", Globals.coffeeItem.ice)
                         putBoolean("hot_cold", Globals.coffeeItem.hotOrCold)
+                        putDouble("price", Globals.coffeeItem.price)
                         putDouble("total_price", binding.totalAmountTextview.text.toString().replace(Regex("[^0-9.]"), "").toDouble())
                     }
                     Globals.coffeeItem = CoffeeItem(0, 1, 1, false, 2, 3, 3.00)

@@ -5,24 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.coffee_order_app.Globals
 import com.example.coffee_order_app.R
+import com.example.coffee_order_app.ui.order.OrderList
 
-class OrderAdapter(private val dataSet: Array<String>) :
-    RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
-
+class OrderAdapter(private val orderList: MutableList<OrderList>): RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val coffeeNameTextView: TextView
-        val locationTextView: TextView
-        val priceTextView: TextView
-        val dateTextView: TextView
-
-        init {
-            coffeeNameTextView = view.findViewById(R.id.order_coffee_name)
-            locationTextView = view.findViewById(R.id.order_location)
-            priceTextView = view.findViewById(R.id.order_price)
-            dateTextView = view.findViewById(R.id.order_date)
-        }
+        val coffeeNameTextView: TextView = view.findViewById(R.id.order_coffee_name)
+        val orderLocationTextView: TextView = view.findViewById(R.id.order_location)
+        val orderPriceTextView: TextView = view.findViewById(R.id.order_price)
+        val orderDateTextView: TextView = view.findViewById(R.id.order_date)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -33,11 +24,14 @@ class OrderAdapter(private val dataSet: Array<String>) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.coffeeNameTextView.text = dataSet[position]
-        viewHolder.locationTextView.text = Globals.user.address
+        val orderItem = orderList[position]
+        viewHolder.coffeeNameTextView.text = orderItem.coffeeName
+        viewHolder.orderLocationTextView.text = orderItem.location
+        viewHolder.orderPriceTextView.text = "$" + String.format("%.2f", orderItem.price)
+        viewHolder.orderDateTextView.text = orderItem.date
     }
 
     override fun getItemCount(): Int {
-        return dataSet.size
+        return orderList.size
     }
 }

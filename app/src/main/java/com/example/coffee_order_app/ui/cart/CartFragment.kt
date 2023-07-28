@@ -1,6 +1,7 @@
 package com.example.coffee_order_app.ui.cart
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import com.example.coffee_order_app.R
 import com.example.coffee_order_app.adapter.CartAdapter
 import com.example.coffee_order_app.databinding.FragmentCartBinding
 import com.example.coffee_order_app.ui.details.CoffeeItem
+import com.example.coffee_order_app.ui.order.OrderList
 
 class CartFragment : Fragment() {
     private var _binding: FragmentCartBinding? = null
@@ -57,18 +59,29 @@ class CartFragment : Fragment() {
         val clickListener = View.OnClickListener { view ->
             when (view) {
                 binding.checkoutButton -> {
-//                    val bundle = Bundle()
-//                    bundle.putDouble("total_price", cartViewModel.getTotalPrice())
-//                    bundle.putParcelableArrayList("cart_item_list", ArrayList(Globals.cartItemList))
-//                    val fragment = CheckoutFragment()
-//                    fragment.arguments = bundle
-//                    val transaction = parentFragmentManager.beginTransaction()
-//                    transaction.replace(R.id.nav_host_fragment_content_main, fragment)
-//                    transaction.addToBackStack(null)
-//                    transaction.commit()
                     for (i in 0..Globals.cartItemList.size - 1) {
                         Globals.loyaltyPoint += Globals.cartItemList.get(i).coffeeItem.quantity
                     }
+                    if (Globals.loyaltyPoint > 8) {
+                        Globals.loyaltyPoint = 8
+                    }
+                    for (i in 0..Globals.cartItemList.size - 1) {
+                        var coffeeName: String = ""
+                        when(Globals.cartItemList.get(i).coffeeItem.coffeeType) {
+                            1 -> coffeeName = "Americano"
+                            2 -> coffeeName = "Cappuccino"
+                            3 -> coffeeName = "Mocha"
+                            4 -> coffeeName = "Flat White"
+                        }
+                        val item: OrderList = OrderList(
+                            coffeeName,
+                            Globals.user.address,
+                            Globals.cartItemList.get(i).coffeeItem.price * Globals.cartItemList.get(i).coffeeItem.quantity,
+                            "12:30 PM"
+                        )
+                        Globals.onGoingOrder.add(item)
+                    }
+                    Globals.cartItemList.clear()
                     findNavController().navigate(R.id.action_cartFragment_to_orderSuccessFragment)
                 }
                 binding.returnButton -> {

@@ -7,8 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coffee_order_app.R
 
-class HistoryRewardAdapter(private val dataSet: Array<String>) :
-    RecyclerView.Adapter<HistoryRewardAdapter.ViewHolder>() {
+class HistoryRewardAdapter(private val dataSet: Array<String>) : RecyclerView.Adapter<HistoryRewardAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coffeeTypeTextView: TextView

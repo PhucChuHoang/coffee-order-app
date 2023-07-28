@@ -7,12 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.coffee_order_app.Globals
-import com.example.coffee_order_app.HomeActivity
 import com.example.coffee_order_app.R
 import com.example.coffee_order_app.databinding.FragmentHomeBinding
 

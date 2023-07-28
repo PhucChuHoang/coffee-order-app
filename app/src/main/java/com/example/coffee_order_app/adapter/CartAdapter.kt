@@ -9,8 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.coffee_order_app.R
 import com.example.coffee_order_app.ui.cart.CartItem
 
-class CartAdapter(private val cartItemList: List<CartItem>) :
-    RecyclerView.Adapter<CartAdapter.ViewHolder>() {
+class CartAdapter(private val cartItemList: List<CartItem>) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textViewCoffeeName: TextView = view.findViewById(R.id.name_coffee)

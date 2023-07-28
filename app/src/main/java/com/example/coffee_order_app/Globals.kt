@@ -6,6 +6,7 @@ import com.example.coffee_order_app.ui.cart.CartItem
 import com.example.coffee_order_app.ui.details.CoffeeItem
 import com.example.coffee_order_app.ui.profile.User
 import com.example.coffee_order_app.HomeActivity
+import com.example.coffee_order_app.ui.order.OrderList
 
 object Globals {
     var cartItemList = mutableListOf<CartItem>()
@@ -22,4 +23,6 @@ object Globals {
             imageView.setImageResource(R.drawable.coffee_cup_fill)
         }
     }
+
+    var onGoingOrder: MutableList<OrderList> = mutableListOf<OrderList>()
 }
