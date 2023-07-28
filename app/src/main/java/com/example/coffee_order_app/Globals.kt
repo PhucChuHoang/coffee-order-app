@@ -25,4 +25,5 @@ object Globals {
     }
 
     var onGoingOrder: MutableList<OrderList> = mutableListOf<OrderList>()
+    var historyOrder: MutableList<OrderList> = mutableListOf<OrderList>()
 }

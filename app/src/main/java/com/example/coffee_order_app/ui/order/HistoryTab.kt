@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.coffee_order_app.Globals
 import com.example.coffee_order_app.adapter.OrderAdapter
 import com.example.coffee_order_app.databinding.TabHistoryBinding
 
@@ -25,5 +27,9 @@ class TabFragmentHistory : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val layoutManager = LinearLayoutManager(view.context)
+        val adapter = OrderAdapter(Globals.historyOrder)
+        binding.historyRecyclerView.layoutManager = layoutManager
+        binding.historyRecyclerView.adapter = adapter
     }
 }

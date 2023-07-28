@@ -15,6 +15,8 @@ import com.example.coffee_order_app.adapter.CartAdapter
 import com.example.coffee_order_app.databinding.FragmentCartBinding
 import com.example.coffee_order_app.ui.details.CoffeeItem
 import com.example.coffee_order_app.ui.order.OrderList
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class CartFragment : Fragment() {
     private var _binding: FragmentCartBinding? = null
@@ -65,6 +67,9 @@ class CartFragment : Fragment() {
                     if (Globals.loyaltyPoint > 8) {
                         Globals.loyaltyPoint = 8
                     }
+                    val dateFormat = SimpleDateFormat("dd MMMM | HH:mm aa")
+                    val currentDate = dateFormat.format(Date())
+                    Log.i("Date", currentDate)
                     for (i in 0..Globals.cartItemList.size - 1) {
                         var coffeeName: String = ""
                         when(Globals.cartItemList.get(i).coffeeItem.coffeeType) {
@@ -73,11 +78,17 @@ class CartFragment : Fragment() {
                             3 -> coffeeName = "Mocha"
                             4 -> coffeeName = "Flat White"
                         }
+                        var price: Double = 0.0
+                        when(Globals.cartItemList.get(i).coffeeItem.size) {
+                            1 -> price = Globals.cartItemList.get(i).coffeeItem.price - 0.5
+                            2 -> price = Globals.cartItemList.get(i).coffeeItem.price
+                            3 -> price = Globals.cartItemList.get(i).coffeeItem.price + 0.5
+                        }
                         val item: OrderList = OrderList(
                             coffeeName,
                             Globals.user.address,
-                            Globals.cartItemList.get(i).coffeeItem.price * Globals.cartItemList.get(i).coffeeItem.quantity,
-                            "12:30 PM"
+                            price * Globals.cartItemList.get(i).coffeeItem.quantity,
+                            currentDate,
                         )
                         Globals.onGoingOrder.add(item)
                     }

@@ -44,7 +44,7 @@
         android:layout_height="15dp"
         android:text="24 June | 12:30 PM"
         android:fontFamily="@font/poppins_medium_500"
-        android:textColor="@color/color_324A59"
+        android:textColor="@color/color_d8d8d8"
         android:textSize="10sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/order_price"
