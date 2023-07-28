@@ -16,6 +16,8 @@ class TabFragmentHistory : Fragment() {
 
     private val binding get() = _binding!!
 
+    private var adapter: OrderAdapter? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,12 +26,16 @@ class TabFragmentHistory : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        this.adapter = OrderAdapter(Globals.historyOrder)
+        binding.historyRecyclerView.adapter = this.adapter
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val layoutManager = LinearLayoutManager(view.context)
-        val adapter = OrderAdapter(Globals.historyOrder)
         binding.historyRecyclerView.layoutManager = layoutManager
-        binding.historyRecyclerView.adapter = adapter
     }
 }

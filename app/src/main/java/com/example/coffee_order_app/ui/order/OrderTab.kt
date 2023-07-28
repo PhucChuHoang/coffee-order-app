@@ -22,6 +22,8 @@ class TabFragmentOnGoing : Fragment() {
 
     private val binding get() = _binding!!
 
+    private var adapter: OrderAdapter? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,13 +32,17 @@ class TabFragmentOnGoing : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        this.adapter = OrderAdapter(Globals.onGoingOrder)
+        binding.onGoingRecyclerView.adapter = adapter
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val layoutManager = LinearLayoutManager(view.context)
         binding.onGoingRecyclerView.layoutManager = layoutManager
-        val adapter = OrderAdapter(Globals.onGoingOrder)
-        binding.onGoingRecyclerView.adapter = adapter
         val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
             0,
             ItemTouchHelper.RIGHT
@@ -54,10 +60,10 @@ class TabFragmentOnGoing : Fragment() {
                 val position = viewHolder.adapterPosition
 
                 // Get the data from the source adapter at the position
-                val item = adapter.getItemViewType(position)
+                val item = adapter?.getItemViewType(position)
 
                 // Remove the item from the source adapter and notify the change
-                adapter.notifyItemRemoved(position)
+                adapter?.notifyItemRemoved(position)
                 Globals.historyOrder.add(Globals.onGoingOrder.get(position))
                 Log.i("Latest Item", Globals.historyOrder.get(Globals.historyOrder.size - 1).coffeeName)
                 Log.i("History", Globals.historyOrder.size.toString())
