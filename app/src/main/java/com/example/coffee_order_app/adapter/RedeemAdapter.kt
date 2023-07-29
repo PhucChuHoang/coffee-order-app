@@ -6,10 +6,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.coffee_order_app.Globals
 import com.example.coffee_order_app.R
+import com.example.coffee_order_app.ui.order.OrderList
 import com.example.coffee_order_app.ui.redeem.RedeemItem
-import com.example.coffee_order_app.ui.reward.RewardItem
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class RedeemAdapter(private val dataSet: MutableList<RedeemItem>) : RecyclerView.Adapter<RedeemAdapter.ViewHolder>() {
 
@@ -47,6 +51,25 @@ class RedeemAdapter(private val dataSet: MutableList<RedeemItem>) : RecyclerView
             }
         }
         viewHolder.rewardNameTextView.text = rewardItem.coffeeName
+        viewHolder.redeemButton.setOnClickListener { v ->
+            val position = viewHolder.adapterPosition
+            val rewardItem = dataSet[position]
+            if(Globals.pointRedeeem < rewardItem.point) {
+                Toast.makeText(v.context, "Not enough points", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            Globals.pointRedeeem -= rewardItem.point
+            val dateFormat = SimpleDateFormat("dd MMMM | HH:mm aa")
+            val currentDate = dateFormat.format(Date())
+            val orderItem = OrderList(
+                rewardItem.coffeeName,
+                Globals.user.address,
+                0.0,
+                currentDate
+            )
+            Globals.onGoingOrder.add(orderItem)
+            Toast.makeText(v.context, "Redeemed successfully", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {
