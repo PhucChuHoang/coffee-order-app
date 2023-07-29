@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coffee_order_app.Globals
+import com.example.coffee_order_app.R
 import com.example.coffee_order_app.adapter.HistoryRewardAdapter
 import com.example.coffee_order_app.adapter.OrderAdapter
 import com.example.coffee_order_app.databinding.FragmentRewardBinding
@@ -51,9 +53,13 @@ class RewardFragment : Fragment() {
                         binding.loyaltyCard.loyaltyValue.text = "0 / 8"
                     }
                 }
+                binding.redeemButton -> {
+                    findNavController().navigate(R.id.action_navigation_dashboard_to_redeemFragment)
+                }
             }
         }
         binding.loyaltyCard.root.setOnClickListener(clickListener)
+        binding.redeemButton.setOnClickListener(clickListener)
     }
 
     override fun onDestroyView() {

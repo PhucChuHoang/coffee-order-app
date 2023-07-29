@@ -6,6 +6,7 @@ import com.example.coffee_order_app.ui.cart.CartItem
 import com.example.coffee_order_app.ui.details.CoffeeItem
 import com.example.coffee_order_app.ui.profile.User
 import com.example.coffee_order_app.ui.order.OrderList
+import com.example.coffee_order_app.ui.redeem.RedeemItem
 import com.example.coffee_order_app.ui.reward.RewardItem
 
 object Globals {
@@ -33,4 +34,10 @@ object Globals {
     var onGoingOrder: MutableList<OrderList> = mutableListOf<OrderList>()
     var historyOrder: MutableList<OrderList> = mutableListOf<OrderList>()
     var rewardItemHistory: MutableList<RewardItem> = mutableListOf<RewardItem>()
+    val redeemItemList: MutableList<RedeemItem> = mutableListOf<RedeemItem>(
+        RedeemItem("Americano", 40),
+        RedeemItem("Cappuccino", 50),
+        RedeemItem("Mocha", 50),
+        RedeemItem("Flat White", 50)
+    )
 }

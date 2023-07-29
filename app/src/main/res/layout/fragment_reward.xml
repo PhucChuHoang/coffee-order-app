@@ -64,6 +64,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:textSize="24sp"/>
         <android.widget.Button
+            android:id="@+id/redeem_button"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             app:backgroundTint="@null"
@@ -74,7 +75,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="Redeem drink"/>
+            android:text="Redeem drinks"/>
         <ImageView
             android:layout_width="66dp"
             android:layout_height="66dp"

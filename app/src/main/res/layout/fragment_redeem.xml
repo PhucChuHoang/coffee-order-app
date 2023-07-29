@@ -30,6 +30,7 @@
         app:layout_constraintTop_toTopOf="@id/text_redeem" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/redeem_recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

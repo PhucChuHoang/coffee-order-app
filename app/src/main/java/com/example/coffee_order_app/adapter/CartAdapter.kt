@@ -10,7 +10,6 @@ import com.example.coffee_order_app.R
 import com.example.coffee_order_app.ui.cart.CartItem
 
 class CartAdapter(private val cartItemList: List<CartItem>) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
-
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textViewCoffeeName: TextView = view.findViewById(R.id.name_coffee)
         val textViewCoffeeTotalPrice: TextView = view.findViewById(R.id.price)
@@ -18,6 +17,7 @@ class CartAdapter(private val cartItemList: List<CartItem>) : RecyclerView.Adapt
         val textViewCoffeeDetails: TextView = view.findViewById(R.id.coffee_details)
         val imageViewImageCoffee: ImageView = view.findViewById(R.id.image_coffee)
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)

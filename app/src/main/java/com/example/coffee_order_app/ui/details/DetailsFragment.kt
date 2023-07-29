@@ -18,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.coffee_order_app.Globals
 import com.example.coffee_order_app.R
 import com.example.coffee_order_app.databinding.FragmentDetailsBinding
+import com.example.coffee_order_app.ui.cart.CartItem
 
 class DetailsFragment : Fragment() {
 
@@ -151,18 +152,21 @@ class DetailsFragment : Fragment() {
                     }
                 }
                 binding.addToCartBtn -> {
-                    val bundle = Bundle().apply {
-                        putInt("type_coffee", Globals.coffeeItem.coffeeType)
-                        putInt("quantity", Globals.coffeeItem.quantity)
-                        putInt("shot", Globals.coffeeItem.shot)
-                        putInt("size", Globals.coffeeItem.size)
-                        putInt("ice", Globals.coffeeItem.ice)
-                        putBoolean("hot_cold", Globals.coffeeItem.hotOrCold)
-                        putDouble("price", Globals.coffeeItem.price)
-                        putDouble("total_price", binding.totalAmountTextview.text.toString().replace(Regex("[^0-9.]"), "").toDouble())
-                    }
+                    val cartItem = CartItem(
+                        CoffeeItem(
+                            Globals.coffeeItem.coffeeType,
+                            Globals.coffeeItem.quantity,
+                            Globals.coffeeItem.shot,
+                            Globals.coffeeItem.hotOrCold,
+                            Globals.coffeeItem.size,
+                            Globals.coffeeItem.ice,
+                            Globals.coffeeItem.price
+                        ),
+                        binding.totalAmountTextview.text.toString().replace(Regex("[^0-9.]"), "").toDouble()
+                    )
+                    Globals.cartItemList.add(cartItem)
                     Globals.coffeeItem = CoffeeItem(0, 1, 1, false, 2, 3, 3.00)
-                    findNavController().navigate(R.id.action_detailsFragment_to_cartFragment, bundle)
+                    findNavController().popBackStack()
                 }
                 binding.cartButton -> {
                     findNavController().navigate(R.id.action_detailsFragment_to_cartFragment)

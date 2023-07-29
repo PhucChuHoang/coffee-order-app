@@ -56,13 +56,7 @@ class TabFragmentOnGoing : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                // Get the position of the swiped item
                 val position = viewHolder.adapterPosition
-
-                // Get the data from the source adapter at the position
-                val item = adapter?.getItemViewType(position)
-
-                // Remove the item from the source adapter and notify the change
                 adapter?.notifyItemRemoved(position)
                 Globals.historyOrder.add(Globals.onGoingOrder.get(position))
                 Globals.onGoingOrder.removeAt(position)
@@ -78,12 +72,8 @@ class TabFragmentOnGoing : Fragment() {
                 isCurrentlyActive: Boolean
             ) {
                 if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
-                    // Check if it's a right swipe or left swipe
                     val isRightSwipe = dX > 0
                     val isLeftSwipe = dX < 0
-
-                    // You can perform customizations based on the swipe direction
-                    // For example, change background colors or icon visibility
 
                     if (isRightSwipe) {
                         // It's a right swipe
@@ -91,7 +81,6 @@ class TabFragmentOnGoing : Fragment() {
                         // It's a left swipe
                     }
                 }
-
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
             }
         })

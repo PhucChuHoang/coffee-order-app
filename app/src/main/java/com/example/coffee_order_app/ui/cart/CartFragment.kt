@@ -13,7 +13,6 @@ import com.example.coffee_order_app.Globals
 import com.example.coffee_order_app.R
 import com.example.coffee_order_app.adapter.CartAdapter
 import com.example.coffee_order_app.databinding.FragmentCartBinding
-import com.example.coffee_order_app.ui.details.CoffeeItem
 import com.example.coffee_order_app.ui.order.OrderList
 import com.example.coffee_order_app.ui.reward.RewardItem
 import java.text.SimpleDateFormat
@@ -36,19 +35,6 @@ class CartFragment : Fragment() {
     ): View {
         cartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
         _binding = FragmentCartBinding.inflate(inflater, container, false)
-        val coffeeItem= CoffeeItem(
-            arguments?.getInt("type_coffee") ?: 0,
-            arguments?.getInt("quantity") ?: 0,
-            arguments?.getInt("shot") ?: 1,
-            arguments?.getBoolean("hot_cold") ?: false,
-            arguments?.getInt("size") ?: 1,
-            arguments?.getInt("ice") ?: 1,
-            arguments?.getDouble("price") ?: 0.0
-        )
-        val totalPrice: Double = arguments?.getDouble("total_price")?: 0.0
-        if (coffeeItem.coffeeType != 0) {
-            cartViewModel.addCartItem(CartItem(coffeeItem, totalPrice))
-        }
         return binding.root
     }
 
@@ -93,7 +79,7 @@ class CartFragment : Fragment() {
                         )
                         val points = (2 * item.price).toInt()
                         Globals.onGoingOrder.add(item)
-                        var rewardItem = RewardItem(
+                        val rewardItem = RewardItem(
                             coffeeName,
                             currentDate,
                             points
