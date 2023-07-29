@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.coffee_order_app.Globals
-import com.example.coffee_order_app.adapter.OrderAdapter
 import com.example.coffee_order_app.adapter.ViewPagerAdapter
 import com.example.coffee_order_app.databinding.FragmentOrderBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -20,7 +18,7 @@ class OrderFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentOrderBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -33,8 +31,8 @@ class OrderFragment : Fragment() {
 
         TabLayoutMediator(binding.orderTabLayout, binding.orderViewPager) { tab, position ->
             when (position) {
-                0 -> tab.text = "On Going" // Replace "Tab 1" with your desired tab title
-                1 -> tab.text = "History" // Replace "Tab 2" with your desired tab title
+                0 -> tab.text = "On Going"
+                1 -> tab.text = "History"
             }
         }.attach()
     }

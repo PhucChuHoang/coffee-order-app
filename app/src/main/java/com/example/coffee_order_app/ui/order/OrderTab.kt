@@ -1,8 +1,6 @@
 package com.example.coffee_order_app.ui.order
 
-import android.graphics.Canvas
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +9,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coffee_order_app.Globals
-import com.example.coffee_order_app.R
 import com.example.coffee_order_app.adapter.OrderAdapter
-import com.example.coffee_order_app.databinding.TabHistoryBinding
 import com.example.coffee_order_app.databinding.TabOnGoingBinding
 
 class TabFragmentOnGoing : Fragment() {
@@ -27,7 +23,7 @@ class TabFragmentOnGoing : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = TabOnGoingBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -58,30 +54,8 @@ class TabFragmentOnGoing : Fragment() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
                 adapter?.notifyItemRemoved(position)
-                Globals.historyOrder.add(Globals.onGoingOrder.get(position))
+                Globals.historyOrder.add(Globals.onGoingOrder[position])
                 Globals.onGoingOrder.removeAt(position)
-            }
-
-            override fun onChildDraw(
-                c: Canvas,
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                dX: Float,
-                dY: Float,
-                actionState: Int,
-                isCurrentlyActive: Boolean
-            ) {
-                if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
-                    val isRightSwipe = dX > 0
-                    val isLeftSwipe = dX < 0
-
-                    if (isRightSwipe) {
-                        // It's a right swipe
-                    } else if (isLeftSwipe) {
-                        // It's a left swipe
-                    }
-                }
-                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
             }
         })
 

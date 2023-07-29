@@ -3,7 +3,6 @@ package com.example.coffee_order_app.ui.details
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.transition.TransitionInflater
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,6 @@ import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources.getColorStateList
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.coffee_order_app.Globals
@@ -43,7 +41,7 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this).get(DetailsViewModel::class.java)
+        viewModel = ViewModelProvider(this)[DetailsViewModel::class.java]
         val root: View = binding.root
         index = arguments?.getInt("intKey", 0)
         when(index) {
@@ -51,25 +49,25 @@ class DetailsFragment : Fragment() {
                 binding.detailsImage.setImageResource(R.drawable.coffee1)
                 Globals.coffeeItem.coffeeType = 1
                 Globals.coffeeItem.price = 3.50
-                binding.totalAmountTextview.setText("$3.50")
+                binding.totalAmountTextview.text = "$3.50"
             }
             2 -> {
                 binding.detailsImage.setImageResource(R.drawable.coffee2)
                 Globals.coffeeItem.coffeeType = 2
                 Globals.coffeeItem.price = 4.00
-                binding.totalAmountTextview.setText("$4.00")
+                binding.totalAmountTextview.text = "$4.00"
             }
             3 -> {
                 binding.detailsImage.setImageResource(R.drawable.coffee3)
                 Globals.coffeeItem.coffeeType = 3
                 Globals.coffeeItem.price = 4.00
-                binding.totalAmountTextview.setText("$4.00")
+                binding.totalAmountTextview.text = "$4.00"
             }
             4 -> {
                 binding.detailsImage.setImageResource(R.drawable.coffee4)
                 Globals.coffeeItem.coffeeType = 4
                 Globals.coffeeItem.price = 4.00
-                binding.totalAmountTextview.setText("$4.00")
+                binding.totalAmountTextview.text = "$4.00"
             }
         }
         setViewAccordingToGlobal()
@@ -81,17 +79,19 @@ class DetailsFragment : Fragment() {
 
         val heroImageView = view.findViewById<ImageView>(R.id.details_image)
         ViewCompat.setTransitionName(heroImageView, "hero_image")
-        if (Globals.coffeeItem.coffeeType == 1) {
-            binding.coffeeName.text = "Americano"
-        }
-        else if (Globals.coffeeItem.coffeeType == 2) {
-            binding.coffeeName.text = "Cappuccino"
-        }
-        else if (Globals.coffeeItem.coffeeType == 3) {
-            binding.coffeeName.text = "Mocha"
-        }
-        else if (Globals.coffeeItem.coffeeType == 4) {
-            binding.coffeeName.text = "Flat White"
+        when (Globals.coffeeItem.coffeeType) {
+            1 -> {
+                binding.coffeeName.text = "Americano"
+            }
+            2 -> {
+                binding.coffeeName.text = "Cappuccino"
+            }
+            3 -> {
+                binding.coffeeName.text = "Mocha"
+            }
+            4 -> {
+                binding.coffeeName.text = "Flat White"
+            }
         }
         val clickListener = View.OnClickListener { v ->
             when(v) {
@@ -176,20 +176,22 @@ class DetailsFragment : Fragment() {
                     findNavController().popBackStack()
                 }
             }
-            if(Globals.coffeeItem.size == 1) {
-                val totalPrice = (Globals.coffeeItem.price - 0.50) * Globals.coffeeItem.quantity
-                val formattedTotal = String.format("%.2f", totalPrice)
-                binding.totalAmountTextview.text = "$" + formattedTotal
-            }
-            else if(Globals.coffeeItem.size == 2) {
-                val totalPrice = Globals.coffeeItem.price * Globals.coffeeItem.quantity
-                val formattedTotal = String.format("%.2f", totalPrice)
-                binding.totalAmountTextview.text = "$" + formattedTotal
-            }
-            else if(Globals.coffeeItem.size == 3) {
-                val totalPrice = (Globals.coffeeItem.price + 0.50) * Globals.coffeeItem.quantity
-                val formattedTotal = String.format("%.2f", totalPrice)
-                binding.totalAmountTextview.text = "$" + formattedTotal
+            when (Globals.coffeeItem.size) {
+                1 -> {
+                    val totalPrice = (Globals.coffeeItem.price - 0.50) * Globals.coffeeItem.quantity
+                    val formattedTotal = String.format("%.2f", totalPrice)
+                    binding.totalAmountTextview.text = "$$formattedTotal"
+                }
+                2 -> {
+                    val totalPrice = Globals.coffeeItem.price * Globals.coffeeItem.quantity
+                    val formattedTotal = String.format("%.2f", totalPrice)
+                    binding.totalAmountTextview.text = "$$formattedTotal"
+                }
+                3 -> {
+                    val totalPrice = (Globals.coffeeItem.price + 0.50) * Globals.coffeeItem.quantity
+                    val formattedTotal = String.format("%.2f", totalPrice)
+                    binding.totalAmountTextview.text = "$$formattedTotal"
+                }
             }
         }
         binding.addToCartBtn.setOnClickListener(clickListener)
