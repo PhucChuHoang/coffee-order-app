@@ -74,5 +74,10 @@
         android:name="com.example.coffee_order_app.ui.order.OrderFragment"
         android:label="fragment_order2"
         tools:layout="@layout/fragment_order" />
+    <fragment
+        android:id="@+id/redeemFragment"
+        android:name="com.example.coffee_order_app.ui.redeem.RedeemFragment"
+        android:label="fragment_redeem"
+        tools:layout="@layout/fragment_redeem" />
 
 </navigation>

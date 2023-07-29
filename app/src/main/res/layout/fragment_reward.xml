@@ -13,7 +13,7 @@
         android:layout_marginTop="37dp"
         android:textAlignment="center"
         android:fontFamily="@font/poppins_medium_500"
-        android:text="Reward"
+        android:text="Rewards"
         android:textColor="#001833"
         android:textSize="16sp"
         app:layout_constraintTop_toTopOf="parent"

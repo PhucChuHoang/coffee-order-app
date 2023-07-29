@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coffee_order_app.R
+import com.example.coffee_order_app.ui.reward.RewardItem
 
-class HistoryRewardAdapter(private val dataSet: Array<String>) : RecyclerView.Adapter<HistoryRewardAdapter.ViewHolder>() {
+class HistoryRewardAdapter(private val dataSet: MutableList<RewardItem>) : RecyclerView.Adapter<HistoryRewardAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coffeeTypeTextView: TextView
@@ -30,8 +31,11 @@ class HistoryRewardAdapter(private val dataSet: Array<String>) : RecyclerView.Ad
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
-        viewHolder.coffeeTypeTextView.text = dataSet[position]
+        val rewardItem = dataSet[position]
+        viewHolder.coffeeTypeTextView.text = rewardItem.coffeeName
+        viewHolder.dateTextView.text = rewardItem.timeOrdered
+        val pointString = "+ " + rewardItem.point.toString() + " Pts"
+        viewHolder.pointTextView.text = pointString
     }
 
     override fun getItemCount(): Int {

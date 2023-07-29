@@ -65,8 +65,6 @@ class TabFragmentOnGoing : Fragment() {
                 // Remove the item from the source adapter and notify the change
                 adapter?.notifyItemRemoved(position)
                 Globals.historyOrder.add(Globals.onGoingOrder.get(position))
-                Log.i("Latest Item", Globals.historyOrder.get(Globals.historyOrder.size - 1).coffeeName)
-                Log.i("History", Globals.historyOrder.size.toString())
                 Globals.onGoingOrder.removeAt(position)
             }
 
