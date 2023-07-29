@@ -1,6 +1,7 @@
 package com.example.coffee_order_app.ui.reward
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,11 @@ class RewardFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val inflater = TransitionInflater.from(requireContext())
+        exitTransition = inflater.inflateTransition(R.transition.fade)
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

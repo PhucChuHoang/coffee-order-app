@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.navigation.fragment.findNavController
 import com.example.coffee_order_app.Globals
 import com.example.coffee_order_app.databinding.FragmentProfileBinding
 
@@ -20,14 +21,13 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         binding.editName.setText(Globals.user.name)
         binding.editPhoneNumber.setText(Globals.user.phone_number)
         binding.editEmail.setText(Globals.user.email)
         binding.editAddress.setText(Globals.user.address)
-        val root: View = binding.root
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,14 +59,17 @@ class ProfileFragment : Fragment() {
                         toggleEditText(binding.editAddress)
                     }
                 }
+                binding.profileReturnButton -> {
+                    findNavController().popBackStack()
+                }
             }
         }
-
         binding.buttonEditName.setOnClickListener(clickListener)
         binding.buttonEditPhoneNumber.setOnClickListener(clickListener)
         binding.buttonEditEmail.setOnClickListener(clickListener)
         binding.buttonEditAddress.setOnClickListener(clickListener)
         binding.layoutProfile.setOnClickListener(clickListener)
+        binding.profileReturnButton.setOnClickListener(clickListener)
     }
 
     private fun toggleEditText(editText: EditText) {
